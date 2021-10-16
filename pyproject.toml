@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "django-google-json-style-api"
+version = "0.1.0"
+description = ""
+authors = ["Андрей Зеваикин <azevakin@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.2.8"
+pydantic = "^1.8.2"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.15.0"
+black = "^21.9b0"
+autoflake = "^1.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+experimental-string-processing = true
+target-version = ["py39"]
+
+
+[tool.isort]
+profile = "black"
+combine_as_imports = true
+known_django = "django"
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "DJANGO", "FIRSTPARTY", "LOCALFOLDER"]
