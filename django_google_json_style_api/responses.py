@@ -10,6 +10,7 @@ from django_google_json_style_api.base import (
     CamelModel,
     GenericCamelModel,
     get_request_id,
+    logger,
 )
 from django_google_json_style_api.exceptions import Unauthorized
 
@@ -154,7 +155,7 @@ class ErrorResponse(BaseResponse, BaseModel):
             if isinstance(exception, PydanticValidationError):
                 status_code = 400
                 errors = cls._make_errors_from_pydantic_validation_error(
-                    reason=reason, validation_error=exception
+                    validation_error=exception
                 )
             elif isinstance(exception, BadRequest):
                 status_code = 400
@@ -173,16 +174,30 @@ class ErrorResponse(BaseResponse, BaseModel):
 
     @staticmethod
     def _make_errors_from_pydantic_validation_error(
-        reason: str, validation_error: PydanticValidationError
+        validation_error: PydanticValidationError,
     ) -> list[ErrorsItem]:
         errors = []
+        reason = validation_error.__class__.__name__
         for error in validation_error.errors():
-            for location, message in error.items():
-                error.append(
+            try:
+                locations = error["loc"]
+                msg = error["msg"]
+            except (KeyError, AssertionError):
+                logger.exception("Incompatible Pydantic error")
+                # Если формат ошибки изменился, возьмем текст ошибки из исключения
+                errors.append(
+                    ErrorsItem(
+                        reason=reason,
+                        message=str(validation_error),
+                    )
+                )
+                break
+            for location in locations:
+                errors.append(
                     ErrorsItem(
                         reason=reason,
                         location=location,
-                        message=message,
+                        message=msg,
                     )
                 )
         return errors

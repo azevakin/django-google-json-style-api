@@ -1,3 +1,4 @@
+import logging
 import uuid
 
 from pydantic import BaseModel
@@ -5,7 +6,11 @@ from pydantic.generics import GenericModel
 
 from django.core.handlers.wsgi import WSGIRequest
 
-__all__ = ["CamelModel", "GenericCamelModel", "get_request_id"]
+__all__ = ["CamelModel", "GenericCamelModel", "get_request_id", "logger"]
+
+
+logger = logging.getLogger("django_google_json_style_api")
+logger.addHandler(logging.NullHandler())
 
 
 def get_request_id(request: WSGIRequest) -> str:

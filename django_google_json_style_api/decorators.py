@@ -1,6 +1,7 @@
-import logging
 from functools import wraps
 from typing import Union
+
+from base import logger
 
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import JsonResponse
@@ -10,8 +11,6 @@ from django_google_json_style_api.responses import (
     BaseResponse,
     ErrorResponse,
 )
-
-logger = logging.getLogger(__name__)
 
 
 def process_json_response(
