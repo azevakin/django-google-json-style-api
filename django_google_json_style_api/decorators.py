@@ -1,11 +1,10 @@
 from functools import wraps
 from typing import Union
 
-from base import logger
-
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import JsonResponse
 
+from django_google_json_style_api.base import logger
 from django_google_json_style_api.responses import (
     DEFAULT_API_VERSION,
     BaseResponse,
