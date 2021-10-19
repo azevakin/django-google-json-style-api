@@ -1,9 +1,14 @@
 [tool.poetry]
 name = "django-google-json-style-api"
 version = "0.3.1"
-description = ""
-authors = ["Андрей Зеваикин <azevakin@gmail.com>"]
+description = "Implementation of Google JSON Style Guide for Django"
+authors = ["Andrey Zevakin"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/azevakin/django-google-json-style-api"
+repository = "https://github.com/azevakin/django-google-json-style-api"
+keywords = ["django", "pydantic", "json", "api"]
+include = ["LICENSE"]
 
 [tool.poetry.dependencies]
 python = "^3.9"

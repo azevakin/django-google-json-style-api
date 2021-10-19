@@ -3,14 +3,16 @@
 Implementation of Google JSON Style Guide for Django
 
 ----
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![autoflake: on](https://img.shields.io/badge/autoflake-on-brightgreen)](https://github.com/myint/autoflake)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PyPI](https://img.shields.io/pypi/v/django-google-json-style-api)](https://pypi.org/project/django-google-json-style-api/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/django-google-json-style-api)](https://pypi.org/project/django-google-json-style-api/)
+---
 ## Install
 
-    pip install django_google_json_style_api
+    pip install django-google-json-style-api
 
 ## Example
 
