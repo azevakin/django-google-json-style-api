@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-google-json-style-api"
-version = "0.3.2"
+version = "0.3.3"
 description = "Implementation of Google JSON Style Guide for Django"
 authors = ["Andrey Zevakin"]
 license = "MIT"
