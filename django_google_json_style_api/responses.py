@@ -86,7 +86,7 @@ class BaseSuccessResponse(BaseResponse, GenericCamelModel, Generic[DataT]):
             items=items,
             **kwargs,
         )
-        return cls(request_id=request_id, data=data)
+        return cls(id=request_id, data=data)
 
 
 class BaseEmptySuccessResponse(BaseResponse):
@@ -103,7 +103,7 @@ class BaseEmptySuccessResponse(BaseResponse):
         :return: Экземпляр успешного ответа
         """
         data = {"status": "OK"}
-        return cls(request_id=get_request_id(request), data=data)
+        return cls(id=get_request_id(request), data=data)
 
 
 class ErrorsItem(BaseModel):

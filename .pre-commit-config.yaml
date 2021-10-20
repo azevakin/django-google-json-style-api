@@ -34,3 +34,8 @@ repos:
         entry: black
         language: python
         types: [ python ]
+      - id: tox
+        name: tox
+        entry: tox
+        language: python
+        types: [ python ]

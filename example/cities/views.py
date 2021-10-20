@@ -2,6 +2,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 
 from django_google_json_style_api.decorators import process_json_response
+from django_google_json_style_api.responses import BaseEmptySuccessResponse
 
 from .models import City
 from .schemas import AddCitiesRequest, CityDataItem, CityResponse
@@ -21,3 +22,9 @@ class AddCitiesView(View):
             total_items=City.objects.count(),
             items=response_items,
         )
+
+
+class TestEmptySuccessView(View):
+    @method_decorator(process_json_response(api_version="1.1"), name="dispatch")
+    def get(self, request):
+        return BaseEmptySuccessResponse.make_from(request)

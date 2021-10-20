@@ -19,6 +19,9 @@ pydantic = "^1.8.0"
 pre-commit = "^2.15.0"
 black = "^21.9b0"
 autoflake = "^1.4"
+tox = "^3.24.4"
+pytest-django = "^4.4.0"
+coverage = "^6.0.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
